@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Цвет темы для браузера (адресная строка) -->
+    <meta name="theme-color" content="#4285f4">
+    
+    <!-- Для iOS: иконка на домашний экран -->
+    <link rel="apple-touch-icon" href="/icons/favicon-128x128.png">
+    
+    <!-- Для iOS: стиль статус-бара -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- Для Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/icons/favicon-16x16.png" type="image/png">
+    
+    <title>Заметки (Практика 14)</title>
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+    
+    <style>
+        #notes-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            width: 100%;
+        }
+        #notes-list li {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            display: block;
+        }
+    </style>
+</head>
+<body class="container" style="margin-top: 50px;">
+    <h1>Оффлайн-заметки</h1>
+    <p class="is-muted">PWA-приложение с поддержкой офлайн-режима</p>
+    
+    <form id="note-form" class="row">
+        <input class="col-9" type="text" id="note-input" placeholder="Введите заметку" required>
+        <button class="col-3 primary" type="submit">Добавить</button>
+    </form>
+
+    <ul id="notes-list"></ul>
+
+    <script src="app.js"></script>
+</body>
+</html>
