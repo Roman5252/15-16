@@ -7,54 +7,44 @@
     <!-- Web App Manifest -->
     <link rel="manifest" href="/manifest.json">
     
-    <!-- Цвет темы для браузера (адресная строка) -->
+    <!-- Мета-теги для PWA -->
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#4285f4">
     
-    <!-- Для iOS: иконка на домашний экран -->
-    <link rel="apple-touch-icon" href="/icons/favicon-128x128.png">
-    
-    <!-- Для iOS: стиль статус-бара -->
+    <!-- Ссылки на иконки для iOS и Android -->
+    <link rel="apple-touch-icon" href="/icons/spirit2.ico">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     
-    <!-- Для Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="/icons/favicon-16x16.png" type="image/png">
-    
-    <title>Заметки (Практика 14)</title>
+    <title>Заметки (13-18)</title>
     <link rel="stylesheet" href="https://unpkg.com/chota@latest">
     
-    <style>
-        #notes-list {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-            width: 100%;
-        }
-        #notes-list li {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 12px;
-            word-wrap: break-word;
-            display: block;
-        }
-    </style>
+    <!-- Иконка вкладки (favicon) -->
+    <link rel="icon" href="/icons/spirit.ico" type="image/ico">
 </head>
-<body class="container" style="margin-top: 50px;">
-    <h1>Оффлайн-заметки</h1>
-    <p class="is-muted">PWA-приложение с поддержкой офлайн-режима</p>
-    
-    <form id="note-form" class="row">
-        <input class="col-9" type="text" id="note-input" placeholder="Введите заметку" required>
-        <button class="col-3 primary" type="submit">Добавить</button>
-    </form>
+<body>
+    <!-- Шапка приложения (App Shell) -->
+    <header>
+        <h1>А вот и «Заметки» <span class="no-break"></span></h1>
+        <nav class="tabs is-center">
+            <button id="home-btn" class="tab active col-6">Главная</button>
+            <button id="about-btn" class="tab col-6">О приложении</button>
+        </nav>
+    </header>
 
-    <ul id="notes-list"></ul>
+    <!-- Основной контейнер для динамического контента -->
+    <main id="app-content" class="container" style="margin-top: 2rem;">
+        <!-- Сюда будет загружаться контент из папки content/ -->
+    </main>
 
+    <!-- Кнопки управления push-уведомлениями (Практика 16) -->
+    <footer class="is-center" style="margin: 2rem 0;">
+        <button id="enable-push" class="button success">Включить уведомления</button>
+        <button id="disable-push" class="button error" style="display:none;">Отключить уведомления</button>
+    </footer>
+
+    <!-- Подключаем клиентскую часть Socket.IO -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <!-- Основной скрипт приложения -->
     <script src="app.js"></script>
 </body>
 </html>
